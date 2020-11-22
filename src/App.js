@@ -13,6 +13,7 @@ function App() {
     <Router>
       <Route path="/" render={() => <Navbar />} />
       <Route exact path="/" render={() => <Home />} />
+      <Route exact path='/character/:id' render={() => <Character />} />
       <Route path="/" render={() => <Footer />} />
       {/* <Route exact path="/" render={() => <Home />} />
       <Route exact path="/search" render={() => <Cards />} />

@@ -16,7 +16,7 @@ export default function Footer() {
                 <Typography variant="overline" display="block" gutterBottom className={classes.text}>
                     Online API by {<a href='https://superheroapi.com/'>Superhero API</a>}
                     {<br></br>}
-                    This web app was developed using Javascript(ES6), React.js, Redux and Material-ui by Leonardo Kuinoso Cifuentes.
+                    This web app was developed using Javascript(ES6), React.js, Redux and Material-ui by Leonardo Kuinoso Cifuentes
                 </Typography>
             </div>
         </div>
