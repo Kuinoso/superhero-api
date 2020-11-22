@@ -1,11 +1,11 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import { useStyles } from './styles.js';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../../images/star-guard-condensed.png'
 
 export default function Navbar() {
     const classes = useStyles();
@@ -16,9 +16,7 @@ export default function Navbar() {
             <AppBar position="static">
                 <Toolbar>
                     <Link to="/" className={classes.title}>
-                        <Typography variant="h6" noWrap>
-                            Super-Search!
-                        </Typography>
+                        <img src={logo} alt='logo' className={classes.logo}/>
                     </Link>
                     {location.pathname !== '/' &&
                         <div className={classes.search}>

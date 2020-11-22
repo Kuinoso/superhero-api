@@ -8,13 +8,16 @@ export const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(2),
     },
     title: {
-        color: 'white',
-        textDecoration: 'none',
         flexGrow: 1,
         display: 'none',
         [theme.breakpoints.up('sm')]: {
             display: 'block',
         },
+        padding: 10,
+    },
+    logo: {
+        width: 300,
+        height: 'auto',
     },
     search: {
         position: 'relative',
