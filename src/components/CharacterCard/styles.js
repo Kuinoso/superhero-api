@@ -5,6 +5,24 @@ export const useStyles = makeStyles({
       maxWidth: 345,
     },
     media: {
-      height: 140,
+      width: 345,
+      maxHeight:460,
+      objectFit: 'cover'
     },
+    bottom: {
+      display: 'flex',
+      marginTop: '50px',
+      justifyContent: 'space-around',
+    },
+    logo: {
+      height: '50px',
+      width: 'auto'
+    },
+    text: {
+      textAlign: 'center',
+      alignSelf: 'center',
+    },
+    textContainer: {
+      height: 50
+    }
   });
