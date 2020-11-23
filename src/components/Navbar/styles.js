@@ -8,12 +8,12 @@ export const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(2),
     },
     title: {
-        flexGrow: 1,
-        display: 'none',
-        [theme.breakpoints.up('sm')]: {
-            display: 'block',
-        },
         padding: 10,
+        width: 'min-content',
+    },
+    toolbar: {
+        display: 'flex',
+        justifyContent: 'space-between'
     },
     logo: {
         width: 300,

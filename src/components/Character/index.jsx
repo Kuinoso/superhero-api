@@ -10,55 +10,54 @@ export default function Character() {
     const classes = useStyles();
 
     const test = {
-        "id": "195",
-        "name": "Cyborg Superman",
+        "id": "233",
+        "name": "Dr Manhattan",
         "powerstats": {
-            "intelligence": "75",
-            "strength": "93",
-            "speed": "92",
-            "durability": "100",
-            "power": "100",
-            "combat": "80"
+          "intelligence": "88",
+          "strength": "100",
+          "speed": "42",
+          "durability": "100",
+          "power": "100",
+          "combat": "42"
         },
         "biography": {
-            "full-name": "Henry Henshaw",
-            "alter-egos": "No alter egos found.",
-            "aliases": [
-                "Grandmaster of the Manhunters",
-                "Herald of the Anti-Monitor",
-                "Alpha-Prime of the Alpha Lanterns"
-            ],
-            "place-of-birth": "-",
-            "first-appearance": "Adventures of Superman #466 (May, 1990)",
-            "publisher": "Prueba Comics",
-            "alignment": "bad"
+          "full-name": "Jonathan Osterman",
+          "alter-egos": "No alter egos found.",
+          "aliases": [
+            "Jon Osterman",
+            "Doctor Manhattan"
+          ],
+          "place-of-birth": "-",
+          "first-appearance": "Watchmen #1 (September, 1986)",
+          "publisher": "DC Comics",
+          "alignment": "good"
         },
         "appearance": {
-            "gender": "Male",
-            "race": "Cyborg",
-            "height": [
-                "-",
-                "0 cm"
-            ],
-            "weight": [
-                "- lb",
-                "0 kg"
-            ],
-            "eye-color": "Blue",
-            "hair-color": "Black"
+          "gender": "Male",
+          "race": "Human / Cosmic",
+          "height": [
+            "-",
+            "0 cm"
+          ],
+          "weight": [
+            "- lb",
+            "0 kg"
+          ],
+          "eye-color": "White",
+          "hair-color": "No Hair"
         },
         "work": {
-            "occupation": "-",
-            "base": "Warworld, Qward, Antimatter Universe, formerly Biot, Sector 3601"
+          "occupation": "Scientist",
+          "base": "New York City; formerly Mars"
         },
         "connections": {
-            "group-affiliation": "Alpha Lantern Corps, Manhunters, Warworld, formerly Apokolips and Sinestro Corps",
-            "relatives": "Terri Henshaw (wife, deceased)"
+          "group-affiliation": "Watchmen, Crimebusters",
+          "relatives": "-"
         },
         "image": {
-            "url": "https://www.superherodb.com/pictures2/portraits/10/100/667.jpg"
+          "url": "https://www.superherodb.com/pictures2/portraits/10/100/884.jpg"
         }
-    }
+      }
 
     const Text = (props) => {
         return (

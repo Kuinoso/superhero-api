@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
   container: {
     marginTop: '20vh',
-    height: '75vh'
+    minHeight: '73vh'
   },
   root: {
     padding: '2px 4px',

@@ -14,7 +14,7 @@ export default function Navbar() {
     return (
         <div className={classes.root}>
             <AppBar position="static">
-                <Toolbar>
+                <Toolbar className={classes.toolbar}>
                     <Link to="/" className={classes.title}>
                         <img src={logo} alt='logo' className={classes.logo}/>
                     </Link>

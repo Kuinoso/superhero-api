@@ -2,7 +2,10 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
     container: {
+        position: 'absolute',
+        bottom: '0px',
         width: '100%',
+        zIndex: 1,
         backgroundColor: 'yellow',
     },
     row: {
