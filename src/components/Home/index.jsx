@@ -6,6 +6,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles.js';
 import axios from 'axios';
+import fetch from 'fetch';
+import $ from "jquery";
 
 export default function Home() {
     const [search, setSearch] = useState(null)
@@ -13,20 +15,40 @@ export default function Home() {
 
     const handleInput = (e) => {
         setSearch(e.target.value)
-    }
+    };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const response = await axios.get(`https://superheroapi.com/api/10157699190431317/10`, {
+        const options = {
+            method: 'GET',
+            url: 'https://superhero-search.p.rapidapi.com/',
+            params: { hero: search },
             headers: {
-                "Content-type": "application/json",
-                "Access-Control-Allow-Methods": "GET,OPTIONS,POST",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Headers":
-                    "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Authorization,Content-Type",
+                'x-rapidapi-key': '9c9edd910bmshc17f8a8d6eeafc8p174993jsn4a3f11e195eb',
+                'x-rapidapi-host': 'superhero-search.p.rapidapi.com'
             }
-        })
-        console.log(response)
+        };
+        axios.request(options).then(function (response) {
+            console.log(response.data);
+        }).catch(function (error) {
+            console.error(error);
+        });
+        // $.get(`https://superheroapi.com/api/10157699190431317/10`, function(data, status){
+        //     console.log(data)
+        //   });
+        // fetch(`https://superheroapi.com/api/10157699190431317/10`)
+        //     .then(response => response.json())
+        //     .then(data => console.log(data));
+        // const response = await axios.get(`https://superheroapi.com/api/10157699190431317/10`, {
+        //     headers: {
+        //         "Content-type": "application/json",
+        //         "Access-Control-Allow-Methods": "GET,OPTIONS,POST",
+        //         "Access-Control-Allow-Origin": "*",
+        //         "Access-Control-Allow-Headers":
+        //             "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Authorization,Content-Type",
+        //     }
+        // })
+        // console.log(response)
     }
 
     return (
