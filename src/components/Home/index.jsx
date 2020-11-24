@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
+import axios from 'axios';
 import Paper from '@material-ui/core/Paper';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles.js';
-import axios from 'axios';
-import fetch from 'fetch';
-import $ from "jquery";
+import { useDispatch } from 'react-redux';
+import { getAllSkills } from '../../redux/characterReducer/Actions'
 
 export default function Home() {
     const [search, setSearch] = useState(null)
     const classes = useStyles();
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleInput = (e) => {
         setSearch(e.target.value)
@@ -29,10 +32,13 @@ export default function Home() {
             }
         };
         axios.request(options).then(function (response) {
-            console.log(response.data);
+            history.push(`/character/${response.data.id}`);
+            dispatch(getAllSkills(response.data));
         }).catch(function (error) {
             console.error(error);
         });
+
+
         // $.get(`https://superheroapi.com/api/10157699190431317/10`, function(data, status){
         //     console.log(data)
         //   });

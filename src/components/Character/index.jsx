@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux'
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles.js';
 import Marvel from '../../images/marvel.png';
@@ -8,57 +9,10 @@ import Dark from '../../images/dark.png'
 
 export default function Character() {
     const classes = useStyles();
-
-    const test = {
-        "id": "233",
-        "name": "Dr Manhattan",
-        "powerstats": {
-          "intelligence": "88",
-          "strength": "100",
-          "speed": "42",
-          "durability": "100",
-          "power": "100",
-          "combat": "42"
-        },
-        "biography": {
-          "full-name": "Jonathan Osterman",
-          "alter-egos": "No alter egos found.",
-          "aliases": [
-            "Jon Osterman",
-            "Doctor Manhattan"
-          ],
-          "place-of-birth": "-",
-          "first-appearance": "Watchmen #1 (September, 1986)",
-          "publisher": "DC Comics",
-          "alignment": "good"
-        },
-        "appearance": {
-          "gender": "Male",
-          "race": "Human / Cosmic",
-          "height": [
-            "-",
-            "0 cm"
-          ],
-          "weight": [
-            "- lb",
-            "0 kg"
-          ],
-          "eye-color": "White",
-          "hair-color": "No Hair"
-        },
-        "work": {
-          "occupation": "Scientist",
-          "base": "New York City; formerly Mars"
-        },
-        "connections": {
-          "group-affiliation": "Watchmen, Crimebusters",
-          "relatives": "-"
-        },
-        "image": {
-          "url": "https://www.superherodb.com/pictures2/portraits/10/100/884.jpg"
-        }
-      }
-
+    const test = useSelector(
+        (store) => store.CharacterReducer.specificData
+    );
+    console.log(test)
     const Text = (props) => {
         return (
             <Typography variant={props.variant} gutterBottom>
@@ -76,17 +30,10 @@ export default function Character() {
         )
     }
 
-    const Company = (props) => {
-        return (
-            test.biography.publisher.includes(props.name) &&
-            <img src={props.src} alt={props.name} />
-        )
-    }
-
     return (
         <div className={classes.container}>
             <div>
-                <img src={test.image.url} alt={test.name} />
+                <img src={test.images.md} alt={test.name} />
                 <div>
                     <ul>
                         <li>
@@ -116,7 +63,7 @@ export default function Character() {
                         <Text variant="h3" text={test.name} />
                         <div>
                             <Text variant="body1" text='Full Name:' />
-                            <Text variant="h5" text={test.biography["full-name"]} />
+                            <Text variant="h5" text={test.biography["fullName"]} />
                         </div>
                         <div>
                             <Text variant="body1" text='Aliases:' />
@@ -152,7 +99,7 @@ export default function Character() {
                         </div>
                         <div>
                             <Text variant="body1" text='First Appearance:' />
-                            <Text variant="h5" text={test.biography["first-appearance"]} />
+                            <Text variant="h5" text={test.biography.firstAppearance} />
                         </div>
                         <div>
                             <Text variant="body1" text='Publisher:' />
