@@ -8,10 +8,10 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles.js';
 import { useDispatch } from 'react-redux';
-import { getAllSkills } from '../../redux/characterReducer/Actions'
+import { getAllCharacters } from '../../redux/searchReducer/Actions'
 
 export default function Home() {
-    const [search, setSearch] = useState(null)
+    const [search, setSearch] = useState(null);
     const classes = useStyles();
     const dispatch = useDispatch();
     const history = useHistory();
@@ -25,36 +25,18 @@ export default function Home() {
         const options = {
             method: 'GET',
             url: 'https://superhero-search.p.rapidapi.com/',
-            params: { hero: search },
+            params: { regex: search },
             headers: {
-                'x-rapidapi-key': '9c9edd910bmshc17f8a8d6eeafc8p174993jsn4a3f11e195eb',
+                'x-rapidapi-key': 'd0079f0d61mshb3a55ab5170477cp1244f3jsn23d29f3d76c7',
                 'x-rapidapi-host': 'superhero-search.p.rapidapi.com'
             }
         };
         axios.request(options).then(function (response) {
-            history.push(`/character/${response.data.id}`);
-            dispatch(getAllSkills(response.data));
+            dispatch(getAllCharacters(response.data));
+            history.push(`/search/${search}`);
         }).catch(function (error) {
             console.error(error);
         });
-
-
-        // $.get(`https://superheroapi.com/api/10157699190431317/10`, function(data, status){
-        //     console.log(data)
-        //   });
-        // fetch(`https://superheroapi.com/api/10157699190431317/10`)
-        //     .then(response => response.json())
-        //     .then(data => console.log(data));
-        // const response = await axios.get(`https://superheroapi.com/api/10157699190431317/10`, {
-        //     headers: {
-        //         "Content-type": "application/json",
-        //         "Access-Control-Allow-Methods": "GET,OPTIONS,POST",
-        //         "Access-Control-Allow-Origin": "*",
-        //         "Access-Control-Allow-Headers":
-        //             "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Authorization,Content-Type",
-        //     }
-        // })
-        // console.log(response)
     }
 
     return (

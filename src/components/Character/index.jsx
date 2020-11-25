@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux'
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles.js';
@@ -9,13 +9,22 @@ import Dark from '../../images/dark.png'
 
 export default function Character() {
     const classes = useStyles();
-    const test = useSelector(
-        (store) => store.CharacterReducer.specificData
+    const characterId = useSelector(
+        (store) => store.CharacterReducer.characterId
     );
-    console.log(test)
+    const results = useSelector(
+        (store) => store.SearchReducer.results
+    );
+    const [character, setCharacter] = useState({});
+
+    useEffect(() => {
+        let filtered = results.filter(item => item.id === characterId)
+        setCharacter(filtered[0]);
+    }, [results, characterId]);
+
     const Text = (props) => {
         return (
-            <Typography variant={props.variant} gutterBottom>
+            <Typography variant={props.variant} gutterBottom className={classes.info}>
                 {props.text}
             </Typography>
         )
@@ -23,7 +32,7 @@ export default function Character() {
 
     const Powerstat = (props) => {
         return (
-            <div>
+            <div className={classes.infoContainer2}>
                 <Text variant='body1' text={props.title} />
                 <Text variant='h5' text={props.type} />
             </div>
@@ -31,98 +40,121 @@ export default function Character() {
     }
 
     return (
-        <div className={classes.container}>
-            <div>
-                <img src={test.images.md} alt={test.name} />
-                <div>
-                    <ul>
-                        <li>
-                            <Powerstat title='Intelligence' type={test.powerstats.intelligence} />
-                        </li>
-                        <li>
-                            <Powerstat title='Strength' type={test.powerstats.strength} />
-                        </li>
-                        <li>
-                            <Powerstat title='Speed' type={test.powerstats.speed} />
-                        </li>
-                        <li>
-                            <Powerstat title='Durability' type={test.powerstats.durability} />
-                        </li>
-                        <li>
-                            <Powerstat title='Power' type={test.powerstats.power} />
-                        </li>
-                        <li>
-                            <Powerstat title='Combat' type={test.powerstats.combat} />
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div>
-                <div>
+        <div className={classes.root}>
+            {character.id &&
+                <div className={classes.container}>
                     <div>
-                        <Text variant="h3" text={test.name} />
-                        <div>
-                            <Text variant="body1" text='Full Name:' />
-                            <Text variant="h5" text={test.biography["fullName"]} />
+                        <img src={character.images.md} alt={character.name} />
+                        <div className={classes.powerContainer}>
+                            <ul>
+                                <li>
+                                    <Powerstat title='Intelligence' type={character.powerstats.intelligence} />
+                                </li>
+                                <li>
+                                    <Powerstat title='Strength' type={character.powerstats.strength} />
+                                </li>
+                                <li>
+                                    <Powerstat title='Speed' type={character.powerstats.speed} />
+                                </li>
+                                <li>
+                                    <Powerstat title='Durability' type={character.powerstats.durability} />
+                                </li>
+                                <li>
+                                    <Powerstat title='Power' type={character.powerstats.power} />
+                                </li>
+                                <li>
+                                    <Powerstat title='Combat' type={character.powerstats.combat} />
+                                </li>
+                            </ul>
                         </div>
-                        <div>
-                            <Text variant="body1" text='Aliases:' />
-                            {test.biography.aliases.map(item =>
-                                <Text variant="h5" text={'- ' + item} />
-                            )}
-                        </div>
-                        {test.biography.alignment === 'good' &&
-                            <div>
-                                <Text variant="body1" text='Role:' />
-                                <Text variant="h5" text='Hero' />
+                    </div>
+                    <div >
+                        <div className={classes.topContainer}>
+                            <Text variant="h3" text={character.name} />
+                            <br></br>
+                            <div className={classes.infoContainer1}>
+                                <div className={classes.leftContainer}>
+                                    <div className={classes.infoContainer}>
+                                        <Text variant="body1" text='Full Name:' />
+                                        <Text variant="h5" text={character.biography.fullName} />
+                                    </div>
+                                    {character.biography.alignment === 'good' &&
+                                        <div className={classes.infoContainer}>
+                                            <Text variant="body1" text='Role:' />
+                                            <Text variant="h5" text='Hero' />
+                                        </div>
+                                    }
+                                    {character.biography.alignment === 'bad' &&
+                                        <div className={classes.infoContainer}>
+                                            <Text variant="body1" text='Role:' />
+                                            <Text variant="h5" text='Villain' />
+                                        </div>
+                                    }
+                                    {character.biography.alignment === 'neutral' &&
+                                        <div className={classes.infoContainer}>
+                                            <Text variant="body1" text='Role:' />
+                                            <Text variant="h5" text='Neutral' />
+                                        </div>
+                                    }
+                                    <div className={classes.infoContainer}>
+                                        <Text variant="body1" text='Race:' />
+                                        <Text variant="h5" text={character.appearance.race} />
+                                    </div>
+                                    <div className={classes.infoContainer}>
+                                        <Text variant="body1" text='Gender:' />
+                                        <Text variant="h5" text={character.appearance.gender} />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className={classes.infoContainer}>
+                                        <Text variant="body1" text='Aliases:' />
+                                        <ul>
+                                            {character.biography.aliases.map(item =>
+                                                <li><Text variant="h5" text={item} /></li>
+                                            )}
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        }
-                        {test.biography.alignment === 'bad' &&
-                            <div>
-                                <Text variant="body1" text='Role:' />
-                                <Text variant="h5" text='Villain' />
+                            <div className={classes.downContainer}>
+                                <div className={classes.infoContainer}>
+                                    <Text variant="body1" text='First Appearance:' />
+                                    <Text variant="h5" text={character.biography.firstAppearance} />
+                                </div>
+                                <br></br>
+                                <div>
+                                    {character.biography.publisher.includes('Marvel') &&
+                                        <div className={classes.infoContainer}>
+                                            <Text variant="body1" text='Publisher:' />
+                                            <img src={Marvel} alt='marvel logo' className={classes.logo} />
+                                        </div>
+                                    }
+                                    {character.biography.publisher.includes('DC') &&
+                                        <div className={classes.infoContainer}>
+                                            <Text variant="body1" text='Publisher:' />
+                                            <img src={DC} alt='dc logo' className={classes.logo} />
+                                        </div>
+                                    }
+                                    {character.biography.publisher.includes('Image') &&
+                                        <div className={classes.infoContainer}>
+                                            <Text variant="body1" text='Publisher:' />
+                                            {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                                            <img src={Image} alt='image logo' className={classes.logo} />
+                                        </div>
+                                    }
+                                    {character.biography.publisher.includes('Dark Horse') &&
+                                        <div className={classes.infoContainer}>
+                                            <Text variant="body1" text='Publisher:' />
+                                            <img src={Dark} alt='dark horse logo' className={classes.logo} />
+                                        </div>
+                                    }
+                                </div>
                             </div>
-                        }
-                        {test.biography.alignment === 'neutral' &&
-                            <div>
-                                <Text variant="body1" text='Role:' />
-                                <Text variant="h5" text='Neutral' />
-                            </div>
-                        }
-                        <div>
-                            <Text variant="body1" text='Race:' />
-                            <Text variant="h5" text={test.appearance.race} />
-                        </div>
-                        <div>
-                            <Text variant="body1" text='Gender:' />
-                            <Text variant="h5" text={test.appearance.gender} />
-                        </div>
-                        <div>
-                            <Text variant="body1" text='First Appearance:' />
-                            <Text variant="h5" text={test.biography.firstAppearance} />
-                        </div>
-                        <div>
-                            <Text variant="body1" text='Publisher:' />
-                            {test.biography.publisher.includes('Marvel') &&
-                                <img src={Marvel} alt='marvel logo' />
-                            }
-                            {test.biography.publisher.includes('DC') &&
-                                <img src={DC} alt='dc logo' />
-                            }
-                            {test.biography.publisher.includes('Image') &&
-                                // eslint-disable-next-line jsx-a11y/img-redundant-alt
-                                <img src={Image} alt='image logo' />
-                            }
-                            {test.biography.publisher.includes('Dark Horse') &&
-                                <img src={Dark} alt='dark horse logo' />
-                            }
-                            {!(test.biography.publisher.includes('Dark Horse')) && !(test.biography.publisher.includes('Image')) && !(test.biography.publisher.includes('DC')) && !(test.biography.publisher.includes('Marvel')) &&
-                                <Text variant="h5" text={test.biography.publisher} />
-                            }
                         </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
+
     )
 }

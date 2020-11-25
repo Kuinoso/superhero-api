@@ -1,20 +1,30 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles.js';
 import Marvel from '../../images/marvel.png';
 import DC from '../../images/dc.png';
 import Image from '../../images/image.svg';
-import Dark from '../../images/dark.png'
+import Dark from '../../images/dark.png';
+import { getCharacterInfo } from '../../redux/characterReducer/Actions';
+import { useDispatch } from 'react-redux';
 
 export default function CharacterCard(props) {
   const classes = useStyles();
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(getCharacterInfo(props.id));
+    history.push(`/character/${props.id}`)
+  }
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={handleClick}>
       <CardActionArea>
         <img src={props.image} alt={props.name} className={classes.media} />
         <CardContent>

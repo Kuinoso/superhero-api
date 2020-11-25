@@ -1,8 +1,8 @@
 import * as actions from './Constants.js';
 
-export const getAllSkills = (props) => async (dispatch) => {
+export const getCharacterInfo = (props) => async (dispatch) => {
     dispatch({
-        type: actions.GET_CHARACTERS,
+        type: actions.GET_CHARACTER_INFO,
         payload: props,
     });
 };

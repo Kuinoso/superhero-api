@@ -1,15 +1,15 @@
 import * as actions from './Constants.js';
 
 const initialState = {
-  specificData: {},
+  characterId: null,
 };
 
 export default function Reducer(state = initialState, action) {
   switch (action.type) {
-    case actions.GET_CHARACTERS:
+    case actions.GET_CHARACTER_INFO:
       return {
         ...state,
-        specificData: action.payload
+        characterId: action.payload
       };
     default:
       return state;
