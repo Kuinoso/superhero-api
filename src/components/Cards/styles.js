@@ -1,14 +1,23 @@
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
   root: {
     display: 'grid',
     gridTemplateColumns: 'auto auto auto',
     gridGap: '70px',
-   justifyContent: 'center',
+    justifyContent: 'center',
+    [theme.breakpoints.down('md')]: {
+      gridTemplateColumns: 'auto auto',
+    },
+    [theme.breakpoints.down('xs')]: {
+      gridTemplateColumns: 'auto',
+    },
   },
   container: {
-    padding: '10vh 0 200px 0',
+    padding: '100px 0 200px 0',
     minHeight: '68vh',
+    [theme.breakpoints.down('xs')]: {
+      paddingBottom: 300
+    },
   }
 }));

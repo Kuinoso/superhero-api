@@ -1,28 +1,43 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles({
-    root: {
-      maxWidth: 345,
+export const useStyles = makeStyles((theme) => ({
+  root: {
+    width: 345,
+    [theme.breakpoints.down('sm')]: {
+      width: 300,
     },
-    media: {
-      width: 345,
-      maxHeight:460,
-      objectFit: 'cover'
+    [theme.breakpoints.down('xs')]: {
+      width: 280,
     },
-    bottom: {
-      display: 'flex',
-      marginTop: '50px',
-      justifyContent: 'space-around',
+  },
+  media: {
+    width: 345,
+    maxHeight: 460,
+    objectFit: 'cover',
+    [theme.breakpoints.down('sm')]: {
+      width: 300,
     },
-    logo: {
-      height: '50px',
-      width: 'auto'
+    [theme.breakpoints.down('xs')]: {
+      width: 280,
     },
-    text: {
-      textAlign: 'center',
-      alignSelf: 'center',
+  },
+  bottom: {
+    display: 'flex',
+    marginTop: 10,
+    justifyContent: 'space-around',
+    [theme.breakpoints.down('xs')]: {
+      marginTop: 0,
     },
-    textContainer: {
-      height: 50
-    }
-  });
+  },
+  logo: {
+    height: '50px',
+    width: 'auto'
+  },
+  text: {
+    textAlign: 'center',
+    alignSelf: 'center',
+  },
+  textContainer: {
+    height: 50
+  }
+}));

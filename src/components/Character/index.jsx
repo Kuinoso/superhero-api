@@ -24,7 +24,7 @@ export default function Character() {
 
     const Text = (props) => {
         return (
-            <Typography variant={props.variant} gutterBottom className={classes.info}>
+            <Typography variant={props.variant} gutterBottom className={props.style}>
                 {props.text}
             </Typography>
         )
@@ -34,7 +34,7 @@ export default function Character() {
         return (
             <div className={classes.infoContainer2}>
                 <Text variant='body1' text={props.title} />
-                <Text variant='h5' text={props.type} />
+                <Text variant='h5' text={props.type} style={classes.score} />
             </div>
         )
     }
@@ -44,7 +44,7 @@ export default function Character() {
             {character.id &&
                 <div className={classes.container}>
                     <div>
-                        <img src={character.images.md} alt={character.name} />
+                        <img src={character.images.md} alt={character.name} className={classes.image} />
                         <div className={classes.powerContainer}>
                             <ul>
                                 <li>
@@ -70,56 +70,54 @@ export default function Character() {
                     </div>
                     <div >
                         <div className={classes.topContainer}>
-                            <Text variant="h3" text={character.name} />
+                            <Text variant="h3" text={character.name} style={classes.name} />
                             <br></br>
                             <div className={classes.infoContainer1}>
                                 <div className={classes.leftContainer}>
                                     <div className={classes.infoContainer}>
                                         <Text variant="body1" text='Full Name:' />
-                                        <Text variant="h5" text={character.biography.fullName} />
+                                        <Text variant="h5" text={character.biography.fullName} style={classes.score} />
                                     </div>
                                     {character.biography.alignment === 'good' &&
                                         <div className={classes.infoContainer}>
                                             <Text variant="body1" text='Role:' />
-                                            <Text variant="h5" text='Hero' />
+                                            <Text variant="h5" text='Hero' style={classes.score} />
                                         </div>
                                     }
                                     {character.biography.alignment === 'bad' &&
                                         <div className={classes.infoContainer}>
                                             <Text variant="body1" text='Role:' />
-                                            <Text variant="h5" text='Villain' />
+                                            <Text variant="h5" text='Villain' style={classes.score} />
                                         </div>
                                     }
                                     {character.biography.alignment === 'neutral' &&
                                         <div className={classes.infoContainer}>
                                             <Text variant="body1" text='Role:' />
-                                            <Text variant="h5" text='Neutral' />
+                                            <Text variant="h5" text='Neutral' style={classes.score} />
                                         </div>
                                     }
                                     <div className={classes.infoContainer}>
                                         <Text variant="body1" text='Race:' />
-                                        <Text variant="h5" text={character.appearance.race} />
+                                        <Text variant="h5" text={character.appearance.race} style={classes.score} />
                                     </div>
                                     <div className={classes.infoContainer}>
                                         <Text variant="body1" text='Gender:' />
-                                        <Text variant="h5" text={character.appearance.gender} />
+                                        <Text variant="h5" text={character.appearance.gender} style={classes.score} />
                                     </div>
                                 </div>
-                                <div>
-                                    <div className={classes.infoContainer}>
-                                        <Text variant="body1" text='Aliases:' />
-                                        <ul>
-                                            {character.biography.aliases.map(item =>
-                                                <li><Text variant="h5" text={item} /></li>
-                                            )}
-                                        </ul>
-                                    </div>
+                                <div className={classes.infoContainer3}>
+                                    <Text variant="body1" text='Aliases:' />
+                                    <ul>
+                                        {character.biography.aliases.map(item =>
+                                            <li><Text variant="h5" text={item} style={classes.score} /></li>
+                                        )}
+                                    </ul>
                                 </div>
                             </div>
                             <div className={classes.downContainer}>
                                 <div className={classes.infoContainer}>
                                     <Text variant="body1" text='First Appearance:' />
-                                    <Text variant="h5" text={character.biography.firstAppearance} />
+                                    <Text variant="h5" text={character.biography.firstAppearance} style={classes.score} />
                                 </div>
                                 <br></br>
                                 <div>

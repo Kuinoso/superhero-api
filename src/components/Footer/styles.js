@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => ({
         bottom: 0,
         width: '100%',
         zIndex: 1,
-        backgroundColor: '#fff126',
+        backgroundColor: '#ffda1f',
         marginTop: 100
     },
     row: {

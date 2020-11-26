@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     [theme.breakpoints.down('sm')]: {
       marginTop: 100,
+      paddingBottom: 250
     },
   },
   root: {
@@ -17,6 +18,9 @@ export const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     [theme.breakpoints.down('sm')]: {
       width: 400,
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: 300,
     },
   },
   input: {

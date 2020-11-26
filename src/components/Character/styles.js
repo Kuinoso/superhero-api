@@ -8,17 +8,44 @@ export const useStyles = makeStyles((theme) => ({
         width: 'min-content',
         padding: 30,
         margin: 'auto',
-        marginTop: 50
+        marginTop: 50,
+        [theme.breakpoints.down('sm')]: {
+            padding: 20,
+        },
     },
     root: {
-        minHeight: '88.5vh'
+        marginTop: 70,
+        paddingBottom: 200,
+        [theme.breakpoints.down('xs')]: {
+            paddingBottom: 300,
+        },
+    },
+    image: {
+        [theme.breakpoints.down('sm')]: {
+            width: 270,
+        },
+        [theme.breakpoints.down('xs')]: {
+            width: 170,
+        },
     },
     topContainer: {
         marginLeft: 50,
-        height: 'min-content'
+        height: 'min-content',
+        [theme.breakpoints.down('sm')]: {
+            marginLeft: 30,
+        },
+        [theme.breakpoints.down('xs')]: {
+            marginLeft: 10,
+        },
     },
     logo: {
-        height: 100
+        height: 100,
+        [theme.breakpoints.down('sm')]: {
+            height: 80
+        },
+        [theme.breakpoints.down('xs')]: {
+            height: 40
+        },
     },
     infoContainer1: {
         display: 'flex',
@@ -26,21 +53,69 @@ export const useStyles = makeStyles((theme) => ({
         justifyContent: 'space-between',
         borderTop: '0.5px solid gray',
         paddingTop: 20,
-        minHeight: 370,
+        height: 'min-content',
+        [theme.breakpoints.down('sm')]: {
+            minWidth: 100,
+        },
+        [theme.breakpoints.down('xs')]: {
+            minWidth: 100,
+            flexDirection: 'column',
+            paddingTop: 0,
+            borderTop: '0.5px solid white',
+        },
     },
     infoContainer2: {
         display: 'flex',
         justifyContent: 'space-between',
-        width: '13vw',
+        width: 260,
+        height: 'min-content',
+        [theme.breakpoints.down('sm')]: {
+            width: 210,
+        },
+        [theme.breakpoints.down('xs')]: {
+            width: 125,
+        },
+    },
+    infoContainer3: {
+        height: 'min-content',
+        [theme.breakpoints.down('xs')]: {
+            display: 'none'
+        },
     },
     info: {
-        marginBottom: 10
+        marginBottom: 10,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '80%'
+        },
+    },
+    name: {
+        marginBottom: 10,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '250%'
+        },
+        [theme.breakpoints.down('xs')]: {
+            marginBottom: 0,
+        },
+    },
+    score: {
+        marginBottom: 10,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '130%'
+        },
     },
     downContainer: {
-        marginTop: 5,
+        marginTop: 100,
         borderTop: '0.5px solid gray',
         paddingTop: 15,
-        height: 'min-content'
+        height: 'min-content',
+        [theme.breakpoints.down('sm')]: {
+            marginTop: 20,
+        },
+        [theme.breakpoints.down('xs')]: {
+            marginTop: 0,
+            borderTop: '0.5px solid white',
+            paddingTop: 0,
+        },
     },
     leftContainer: {
         height: 'min-content',

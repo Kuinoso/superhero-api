@@ -13,11 +13,22 @@ export const useStyles = makeStyles((theme) => ({
     },
     toolbar: {
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        backgroundColor: '#fff126',
+        color: 'black',
     },
     logo: {
         width: 300,
         height: 'auto',
+        [theme.breakpoints.down('md')]: {
+            width: 250
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: 200
+        },
+        [theme.breakpoints.down('xs')]: {
+            width: 150
+        },
     },
     search: {
         position: 'relative',
