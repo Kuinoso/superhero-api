@@ -5,8 +5,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;;
-  background-color: white;
   position: relative;
+  background: rgb(250,244,182);
+  background: linear-gradient(90deg, rgba(250,244,182,1) 0%, rgba(255,238,180,1) 100%);
+  min-height: 100vh;
+  min-width: 100vw;  
+}
+
+body:after {
+  content: "";
+  background: url('./images/wp.jpg');  
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; 
+  background-size: cover;
 }
 
 code {

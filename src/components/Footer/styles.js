@@ -4,7 +4,7 @@ export const useStyles = makeStyles((theme) => ({
     container: {
         position: 'absolute',
         bottom: '0px',
-        width: '100%',
+        width: '100vw',
         zIndex: 1,
         backgroundColor: 'yellow',
     },
@@ -12,7 +12,7 @@ export const useStyles = makeStyles((theme) => ({
         margin: 'auto',
         display: 'flex',
         justifyContent: 'space-between',
-        width: 1100
+        width: '60vw'
     },
     logo: {
         width: 200,
@@ -20,6 +20,6 @@ export const useStyles = makeStyles((theme) => ({
         margin: '30px 0 30px 0'
     },
     text: {
-        margin: '15px 0 15px 0'
+        margin: 15,
     }
 }));

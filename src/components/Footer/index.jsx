@@ -13,7 +13,7 @@ export default function Footer() {
                 <Link to="/" className={classes.title}>
                     <img src={logo} alt='logo' className={classes.logo} />
                 </Link>
-                <Typography variant="overline" display="block" gutterBottom className={classes.text}>
+                <Typography variant="overline" gutterBottom className={classes.text}>
                     Online API by {<a href='https://rapidapi.com/jakash1997/api/superhero-search/endpoints'>Superhero API</a>}
                     {<br></br>}
                     This web app was developed using Javascript(ES6), React.js, Redux and Material-ui by Leonardo Kuinoso Cifuentes
