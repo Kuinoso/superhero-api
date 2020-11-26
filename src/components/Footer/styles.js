@@ -1,10 +1,10 @@
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { fade,              makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
     container: {
         position: 'absolute',
         bottom: '0px',
-        width: '100vw',
+        width: '100%',
         zIndex: 1,
         backgroundColor: 'yellow',
     },

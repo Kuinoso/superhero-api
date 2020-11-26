@@ -2,22 +2,21 @@ import { makeStyles, theme } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
   container: {
-    marginTop: '20vh',
-    width: 'min-content',
+    marginTop: 200,
     margin: 'auto',
     [theme.breakpoints.down('sm')]: {
-      marginTop: '10vh',
+      marginTop: 100,
     },
   },
   root: {
     padding: '2px 4px',
     display: 'flex',
     alignItems: 'center',
-    width: '40vw',
-    height: '5vh',
+    width: 800,
+    height: 50,
     margin: 'auto',
     [theme.breakpoints.down('sm')]: {
-      width: '60vw',
+      width: 400,
     },
   },
   input: {
@@ -34,25 +33,37 @@ export const useStyles = makeStyles((theme) => ({
   text1: {
     textAlign: 'center',
     fontWeight: '400',
-    marginBottom: '10vh',
-    width: '70vw',
+    margin: 'auto',
+    padding: 20,
+    marginBottom: 100,
+    fontSize: 65,
     [theme.breakpoints.down('lg')]: {
-      fontSize: '45px',
+      fontSize: 55,
     },
     [theme.breakpoints.down('md')]: {
-      fontSize: '35px',
+      fontSize: 45,
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 35,
+      marginBottom: 50,
     },
   },
   text2: {
     textAlign: 'center',
     fontWeight: '400',
-    marginTop: '10vh',
-    width: '70vw',
+    margin: 'auto',
+    marginTop: 100,
+    padding: 20,    
+    fontSize: 45,
     [theme.breakpoints.down('lg')]: {
-      fontSize: '35px',
+      fontSize: 35,
     },
     [theme.breakpoints.down('md')]: {
-      fontSize: '25px',
+      fontSize: 30,
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 20,
+      marginTop: 50,
     },
   }
 }));

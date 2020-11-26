@@ -1,3 +1,6 @@
+html {
+  height: 100%;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,8 +11,7 @@ body {
   position: relative;
   background: rgb(250,244,182);
   background: linear-gradient(90deg, rgba(250,244,182,1) 0%, rgba(255,238,180,1) 100%);
-  min-height: 100vh;
-  min-width: 100vw;  
+  min-height: 100%;
 }
 
 body:after {
