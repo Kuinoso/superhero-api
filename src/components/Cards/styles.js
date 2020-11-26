@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme) => ({
    justifyContent: 'center',
   },
   container: {
-    padding: '10vh 0 15vh 0',
-    minHeight: '68vh'
+    padding: '10vh 0 200px 0',
+    minHeight: '68vh',
   }
 }));

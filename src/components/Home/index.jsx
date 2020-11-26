@@ -42,7 +42,7 @@ export default function Home() {
     return (
         <div className={classes.container}>
             <Typography variant="h2" gutterBottom className={classes.text1}>
-                The biggest database of the comic book world!
+                The biggest comic book database of the world!
             </Typography>
             <Paper component="form" className={classes.root}>
                 <InputBase
