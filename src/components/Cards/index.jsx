@@ -2,18 +2,37 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
 import CharacterCard from '../CharacterCard';
 import { useStyles } from './styles.js';
+import Pagination from "react-js-pagination";
+import notFound from '../../images/notFound.png';
+import { useHistory } from 'react-router-dom';
 
 export default function Cards() {
     const classes = useStyles();
-    const results = useSelector(
+    const history = useHistory();
+    const todos = useSelector(
         (store) => store.SearchReducer.results
     );
+    const todosPerPage = 3;
+    const [activePage, setCurrentPage] = useState(1);
+    const indexOfLastTodo = activePage * todosPerPage;
+    const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+    const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+
+    const handlePageChange = (pageNumber) => {
+        console.log(`active page is ${pageNumber}`);
+        setCurrentPage(pageNumber)
+    };
+
+    const handleHome = (e) => {
+        e.preventDefault();
+        history.push('/')
+    }
 
     return (
         <div className={classes.container}>
             <div className={classes.root}>
-                {results.length > 0 &&
-                    results.map((item) => (
+                {todos.length > 0 &&
+                    currentTodos.map((item) => (
                         <CharacterCard
                             key={item.id}
                             id={item.id}
@@ -25,6 +44,26 @@ export default function Cards() {
                         />
                     ))}
             </div>
+            {!(todos.length <= 3) && todos.length > 0 &&
+                <div className="pagination">
+                    <Pagination
+                        activePage={activePage}
+                        itemsCountPerPage={3}
+                        totalItemsCount={todos.length}
+                        pageRangeDisplayed={10}
+                        onChange={handlePageChange}
+                    />
+                </div>
+            }
+            {todos.length === 0 &&
+                <div className={classes.nfContainer}>
+                    <div className={classes.nfTop}>
+                        <h2 className={classes.text}>Your search didn't return any results!</h2>
+                        <button onClick={handleHome} className={classes.button}>Try another search</button>
+                    </div>
+                    <img src={notFound} alt='Not found' className={classes.notFound} />
+                </div>
+            }
         </div>
     )
 }

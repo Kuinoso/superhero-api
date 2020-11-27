@@ -6,6 +6,8 @@ export const useStyles = makeStyles((theme) => ({
     gridTemplateColumns: 'auto auto auto',
     gridGap: '70px',
     justifyContent: 'center',
+    margin: 'auto',
+    marginBottom: 100,
     [theme.breakpoints.down('md')]: {
       gridTemplateColumns: 'auto auto',
     },
@@ -15,9 +17,46 @@ export const useStyles = makeStyles((theme) => ({
   },
   container: {
     padding: '100px 0 200px 0',
-    minHeight: '68vh',
     [theme.breakpoints.down('xs')]: {
-      paddingBottom: 300
+      paddingBottom: 300,
+      paddingTop: 20
     },
+  },
+  nfContainer: {
+    backgroundColor: 'white',
+    border: '0.5px solid gray',
+    width: 'min-content',
+    margin: 'auto',
+    padding: 20,
+    display: 'flex',
+    [theme.breakpoints.down('sm')]: {
+      padding: 10
+    },
+  },
+  notFound: {
+    width:200,
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    },
+  },
+  nfTop: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginRight: 20
+  },
+  text: {
+    width: 450,
+    alignSelf: 'center',
+    textAlign: 'center',
+    [theme.breakpoints.down('xs')]: {
+      width: 270
+    },
+  },
+  button: {
+    fontSize: 25,
+    width: 'auto',
+    margin: 'auto',
+    borderRadius: 10,
+    cursor: 'pointer'
   }
 }));
