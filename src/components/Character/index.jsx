@@ -74,10 +74,12 @@ export default function Character() {
                             <br></br>
                             <div className={classes.infoContainer1}>
                                 <div className={classes.leftContainer}>
-                                    <div className={classes.infoContainer}>
-                                        <Text variant="body1" text='Full Name:' />
-                                        <Text variant="h5" text={character.biography.fullName} style={classes.fullName} />
-                                    </div>
+                                    {character.biography.fullName.length > 0 &&
+                                        <div className={classes.infoContainer}>
+                                            <Text variant="body1" text='Full Name:' />
+                                            <Text variant="h5" text={character.biography.fullName} style={classes.fullName} />
+                                        </div>
+                                    }
                                     {character.biography.alignment === 'good' &&
                                         <div className={classes.infoContainer}>
                                             <Text variant="body1" text='Role:' />
@@ -96,29 +98,37 @@ export default function Character() {
                                             <Text variant="h5" text='Neutral' style={classes.score} />
                                         </div>
                                     }
-                                    <div className={classes.infoContainer}>
-                                        <Text variant="body1" text='Race:' />
-                                        <Text variant="h5" text={character.appearance.race} style={classes.score} />
-                                    </div>
-                                    <div className={classes.infoContainer}>
-                                        <Text variant="body1" text='Gender:' />
-                                        <Text variant="h5" text={character.appearance.gender} style={classes.score} />
-                                    </div>
+                                    {character.appearance.race.length > 0 &&
+                                        <div className={classes.infoContainer}>
+                                            <Text variant="body1" text='Race:' />
+                                            <Text variant="h5" text={character.appearance.race} style={classes.score} />
+                                        </div>
+                                    }
+                                    {character.appearance.gender.length > 0 &&
+                                        <div className={classes.infoContainer}>
+                                            <Text variant="body1" text='Gender:' />
+                                            <Text variant="h5" text={character.appearance.gender} style={classes.score} />
+                                        </div>
+                                    }
                                 </div>
-                                <div className={classes.infoContainer3}>
-                                    <Text variant="body1" text='Aliases:' />
-                                    <ul className={classes.stats}>
-                                        {character.biography.aliases.map(item =>
-                                            <li><Text variant="h5" text={item} style={classes.aliases} /></li>
-                                        )}
-                                    </ul>
-                                </div>
+                                {character.biography.aliases[0] !== "-" &&
+                                    <div className={classes.infoContainer3}>
+                                        <Text variant="body1" text='Aliases:' />
+                                        <ul className={classes.stats}>
+                                            {character.biography.aliases.map(item =>
+                                                <li key={item}><Text variant="h5" text={item} style={classes.aliases} /></li>
+                                            )}
+                                        </ul>
+                                    </div>
+                                }
                             </div>
                             <div className={classes.downContainer}>
-                                <div className={classes.infoContainer}>
-                                    <Text variant="body1" text='First Appearance:' />
-                                    <Text variant="h5" text={character.biography.firstAppearance} style={classes.score} />
-                                </div>
+                                {character.biography.firstAppearance.length > 0 &&
+                                    <div className={classes.infoContainer}>
+                                        <Text variant="body1" text='First Appearance:' />
+                                        <Text variant="h5" text={character.biography.firstAppearance} style={classes.score} />
+                                    </div>
+                                }
                                 <br></br>
                                 <div>
                                     {character.biography.publisher.includes('Marvel') &&

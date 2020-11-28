@@ -2,20 +2,21 @@ import { makeStyles, theme } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
   container: {
-    marginTop: 200,
+    marginTop: 60,
     margin: 'auto',
     color: 'white',
     [theme.breakpoints.down('sm')]: {
       marginTop: 100,
       paddingBottom: 250
     },
+    minHeight: '100%'
   },
   root: {
     padding: '2px 4px',
     display: 'flex',
     alignItems: 'center',
     width: 800,
-    height: 50,
+    minHeight: '100%',
     margin: 'auto',
     [theme.breakpoints.down('sm')]: {
       width: 400,

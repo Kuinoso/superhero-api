@@ -16,7 +16,7 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   container: {
-    padding: '100px 0 200px 0',
+    padding: '50px 0 200px 0',
     [theme.breakpoints.down('xs')]: {
       paddingBottom: 300,
       paddingTop: 20
@@ -27,6 +27,7 @@ export const useStyles = makeStyles((theme) => ({
     border: '0.5px solid gray',
     width: 'min-content',
     margin: 'auto',
+    marginTop: 0,
     padding: 20,
     display: 'flex',
     [theme.breakpoints.down('sm')]: {

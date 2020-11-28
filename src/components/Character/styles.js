@@ -114,13 +114,16 @@ export const useStyles = makeStyles((theme) => ({
         borderTop: '0.5px solid gray',
         paddingTop: 15,
         height: 'min-content',
+        width: 250,
         [theme.breakpoints.down('sm')]: {
             marginTop: 20,
+            width: 'auto'
         },
         [theme.breakpoints.down('xs')]: {
             marginTop: 0,
             borderTop: '0.5px solid white',
             paddingTop: 0,
+            width: 'auto'
         },
     },
     leftContainer: {
