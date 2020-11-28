@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import './App.css';
@@ -7,7 +7,6 @@ import Home from './components/Home';
 import Cards from './components/Cards';
 import Character from './components/Character';
 import Footer from './components/Footer';
-import axios from 'axios';
 
 function App() {
   

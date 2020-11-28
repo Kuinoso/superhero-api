@@ -46,7 +46,7 @@ export default function Character() {
                     <div>
                         <img src={character.images.md} alt={character.name} className={classes.image} />
                         <div className={classes.powerContainer}>
-                            <ul>
+                            <ul className={classes.stats}>
                                 <li>
                                     <Powerstat title='Intelligence' type={character.powerstats.intelligence} />
                                 </li>
@@ -76,7 +76,7 @@ export default function Character() {
                                 <div className={classes.leftContainer}>
                                     <div className={classes.infoContainer}>
                                         <Text variant="body1" text='Full Name:' />
-                                        <Text variant="h5" text={character.biography.fullName} style={classes.score} />
+                                        <Text variant="h5" text={character.biography.fullName} style={classes.fullName} />
                                     </div>
                                     {character.biography.alignment === 'good' &&
                                         <div className={classes.infoContainer}>
@@ -107,9 +107,9 @@ export default function Character() {
                                 </div>
                                 <div className={classes.infoContainer3}>
                                     <Text variant="body1" text='Aliases:' />
-                                    <ul>
+                                    <ul className={classes.stats}>
                                         {character.biography.aliases.map(item =>
-                                            <li><Text variant="h5" text={item} style={classes.score} /></li>
+                                            <li><Text variant="h5" text={item} style={classes.aliases} /></li>
                                         )}
                                     </ul>
                                 </div>

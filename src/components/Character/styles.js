@@ -44,18 +44,18 @@ export const useStyles = makeStyles((theme) => ({
             height: 80
         },
         [theme.breakpoints.down('xs')]: {
-            height: 40
+            height: 50
         },
     },
     infoContainer1: {
         display: 'flex',
-        minWidth: 450,
+        minWidth: 'min-content',
         justifyContent: 'space-between',
         borderTop: '0.5px solid gray',
         paddingTop: 20,
         height: 'min-content',
         [theme.breakpoints.down('sm')]: {
-            minWidth: 100,
+            minWidth: 190,
         },
         [theme.breakpoints.down('xs')]: {
             minWidth: 100,
@@ -78,8 +78,10 @@ export const useStyles = makeStyles((theme) => ({
     },
     infoContainer3: {
         height: 'min-content',
+        marginLeft: 20,
         [theme.breakpoints.down('xs')]: {
-            display: 'none'
+            display: 'none',
+            marginLeft: 10
         },
     },
     info: {
@@ -95,12 +97,16 @@ export const useStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.down('xs')]: {
             marginBottom: 0,
+            fontSize: '160%'
         },
     },
     score: {
         marginBottom: 10,
         [theme.breakpoints.down('sm')]: {
             fontSize: '130%'
+        },
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '125%'
         },
     },
     downContainer: {
@@ -123,5 +129,31 @@ export const useStyles = makeStyles((theme) => ({
     powerContainer: {
         marginTop: 10
 
+    },
+    stats: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    aliases: {
+        width: 250,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '130%',
+            width: 'auto'
+        },
+        [theme.breakpoints.down('xs')]: {
+            width: 'auto'
+        },
+    },
+    fullName: {
+        width: 250,
+        marginBottom: 10,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '130%',
+            width: 'auto'
+        },
+        [theme.breakpoints.down('xs')]: {
+            width: 'auto',
+            fontSize: '125%'
+        },
     }
 }));

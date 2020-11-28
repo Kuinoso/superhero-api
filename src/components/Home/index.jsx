@@ -20,12 +20,17 @@ export default function Home() {
         setSearch(e.target.value)
     };
 
+    function capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        const query = search.split(' ').map(capitalize).join(' ');
         const options = {
             method: 'GET',
             url: 'https://superhero-search.p.rapidapi.com/',
-            params: { regex: search },
+            params: { regex: query },
             headers: {
                 'x-rapidapi-key': 'd0079f0d61mshb3a55ab5170477cp1244f3jsn23d29f3d76c7',
                 'x-rapidapi-host': 'superhero-search.p.rapidapi.com'

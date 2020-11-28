@@ -6,7 +6,8 @@ export const useStyles = makeStyles((theme) => ({
         bottom: 0,
         width: '100%',
         zIndex: 1,
-        backgroundColor: '#ffda1f',
+        backgroundColor: '#ba0000',
+        color: 'white',
         marginTop: 100
     },
     row: {
@@ -17,6 +18,10 @@ export const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('sm')]: {
             flexDirection: 'column',
         },
+    },
+    link: {
+        color: 'white',
+        fontWeight: 'bolder'
     },
     logo: {
         width: 200,

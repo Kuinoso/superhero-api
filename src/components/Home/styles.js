@@ -4,6 +4,7 @@ export const useStyles = makeStyles((theme) => ({
   container: {
     marginTop: 200,
     margin: 'auto',
+    color: 'white',
     [theme.breakpoints.down('sm')]: {
       marginTop: 100,
       paddingBottom: 250

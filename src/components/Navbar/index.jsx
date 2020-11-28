@@ -7,7 +7,7 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import { useStyles } from './styles.js';
 import { Link, useLocation, useHistory } from 'react-router-dom';
-import logo from '../../images/star-guard-condensed.png';
+import logo2 from '../../images/wf.png';
 import { getAllCharacters } from '../../redux/searchReducer/Actions'
 
 export default function Navbar() {
@@ -21,12 +21,17 @@ export default function Navbar() {
         setSearch(e.target.value);
     };
 
+    function capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        const query = search.split(' ').map(capitalize).join(' ');
         const options = {
             method: 'GET',
             url: 'https://superhero-search.p.rapidapi.com/',
-            params: { regex: search },
+            params: { regex: query },
             headers: {
                 'x-rapidapi-key': 'd0079f0d61mshb3a55ab5170477cp1244f3jsn23d29f3d76c7',
                 'x-rapidapi-host': 'superhero-search.p.rapidapi.com'
@@ -45,7 +50,7 @@ export default function Navbar() {
             <AppBar position="static">
                 <Toolbar className={classes.toolbar}>
                     <Link to="/" className={classes.title}>
-                        <img src={logo} alt='logo' className={classes.logo} />
+                        <img src={logo2} alt='logo' className={classes.logo} />
                     </Link>
                     {location.pathname !== '/' &&
                         <div className={classes.search}>

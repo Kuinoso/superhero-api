@@ -14,7 +14,7 @@ export const useStyles = makeStyles((theme) => ({
     toolbar: {
         display: 'flex',
         justifyContent: 'space-between',
-        backgroundColor: '#fff126',
+        backgroundColor: '#ba0000',
         color: 'black',
     },
     logo: {
@@ -27,10 +27,11 @@ export const useStyles = makeStyles((theme) => ({
             width: 200
         },
         [theme.breakpoints.down('xs')]: {
-            width: 150
+            width: 170
         },
     },
     search: {
+        color: 'white',
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: fade(theme.palette.common.white, 0.15),

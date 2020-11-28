@@ -12,7 +12,7 @@ export default function Cards() {
     const todos = useSelector(
         (store) => store.SearchReducer.results
     );
-    const todosPerPage = 3;
+    const todosPerPage = 9;
     const [activePage, setCurrentPage] = useState(1);
     const indexOfLastTodo = activePage * todosPerPage;
     const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
@@ -44,11 +44,11 @@ export default function Cards() {
                         />
                     ))}
             </div>
-            {!(todos.length <= 3) && todos.length > 0 &&
+            {!(todos.length <= 9) && todos.length > 0 &&
                 <div className="pagination">
                     <Pagination
                         activePage={activePage}
-                        itemsCountPerPage={3}
+                        itemsCountPerPage={9}
                         totalItemsCount={todos.length}
                         pageRangeDisplayed={10}
                         onChange={handlePageChange}
