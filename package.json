@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.2.2",
     "axios": "^0.21.0",
     "bootstrap": "^3.4.1",
+    "date-fns": "^2.16.1",
     "fetch": "^1.1.0",
     "jquery": "^3.5.1",
     "react": "^17.0.1",
