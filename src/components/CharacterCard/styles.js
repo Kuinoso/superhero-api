@@ -38,6 +38,7 @@ export const useStyles = makeStyles((theme) => ({
     alignSelf: 'center',
   },
   textContainer: {
-    height: 50
+    height: 'min-content',
+    minHeight: 50,
   }
 }));
