@@ -48,9 +48,9 @@ export const useStyles = makeStyles((theme) => ({
         },
     },
     logoDH: {
-        height: 100,
+        height: 70,
         [theme.breakpoints.down('sm')]: {
-            height: 80
+            height: 50
         },
         [theme.breakpoints.down('xs')]: {
             height: 30
