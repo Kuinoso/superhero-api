@@ -23,7 +23,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   bottom: {
     display: 'flex',
-    marginTop: 10,
+    marginTop: 25,
     justifyContent: 'space-around',
     [theme.breakpoints.down('xs')]: {
       marginTop: 0,

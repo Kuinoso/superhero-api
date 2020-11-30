@@ -74,7 +74,7 @@ export default function Character() {
                             <br></br>
                             <div className={classes.infoContainer1}>
                                 <div className={classes.leftContainer}>
-                                    {character.biography.fullName.length > 0 &&
+                                    {character.biography.fullName && character.biography.fullName.length > 0 &&
                                         <div className={classes.infoContainer}>
                                             <Text variant="body1" text='Full Name:' />
                                             <Text variant="h5" text={character.biography.fullName} style={classes.fullName} />
@@ -98,13 +98,13 @@ export default function Character() {
                                             <Text variant="h5" text='Neutral' style={classes.score} />
                                         </div>
                                     }
-                                    {character.appearance.race.length > 0 &&
+                                    {character.appearance.race && character.appearance.race.length > 0 &&
                                         <div className={classes.infoContainer}>
                                             <Text variant="body1" text='Race:' />
                                             <Text variant="h5" text={character.appearance.race} style={classes.score} />
                                         </div>
                                     }
-                                    {character.appearance.gender.length > 0 &&
+                                    {character.appearance.gender && character.appearance.gender.length > 0 &&
                                         <div className={classes.infoContainer}>
                                             <Text variant="body1" text='Gender:' />
                                             <Text variant="h5" text={character.appearance.gender} style={classes.score} />
@@ -115,7 +115,7 @@ export default function Character() {
                                     <div className={classes.infoContainer3}>
                                         <Text variant="body1" text='Aliases:' />
                                         <ul className={classes.stats}>
-                                            {character.biography.aliases.map(item =>
+                                            {character.biography.aliases.slice(0, 5).map(item =>
                                                 <li key={item}><Text variant="h5" text={item} style={classes.aliases} /></li>
                                             )}
                                         </ul>
@@ -123,7 +123,7 @@ export default function Character() {
                                 }
                             </div>
                             <div className={classes.downContainer}>
-                                {character.biography.firstAppearance.length > 0 &&
+                                {character.biography.firstAppearance && character.biography.firstAppearance.length > 0 &&
                                     <div className={classes.infoContainer}>
                                         <Text variant="body1" text='First Appearance:' />
                                         <Text variant="h5" text={character.biography.firstAppearance} style={classes.score} />
@@ -131,26 +131,26 @@ export default function Character() {
                                 }
                                 <br></br>
                                 <div>
-                                    {character.biography.publisher.includes('Marvel') &&
+                                    {character.biography.publisher && character.biography.publisher.includes('Marvel') &&
                                         <div className={classes.infoContainer}>
                                             <Text variant="body1" text='Publisher:' />
                                             <img src={Marvel} alt='marvel logo' className={classes.logo} />
                                         </div>
                                     }
-                                    {character.biography.publisher.includes('DC') &&
+                                    {character.biography.publisher && character.biography.publisher.includes('DC') &&
                                         <div className={classes.infoContainer}>
                                             <Text variant="body1" text='Publisher:' />
                                             <img src={DC} alt='dc logo' className={classes.logo} />
                                         </div>
                                     }
-                                    {character.biography.publisher.includes('Image') &&
+                                    {character.biography.publisher && character.biography.publisher.includes('Image') &&
                                         <div className={classes.infoContainer}>
                                             <Text variant="body1" text='Publisher:' />
                                             {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                                             <img src={Image} alt='image logo' className={classes.logo} />
                                         </div>
                                     }
-                                    {character.biography.publisher.includes('Dark Horse') &&
+                                    {character.biography.publisher && character.biography.publisher.includes('Dark Horse') &&
                                         <div className={classes.infoContainer}>
                                             <Text variant="body1" text='Publisher:' />
                                             <img src={Dark} alt='dark horse logo' className={classes.logo} />

@@ -22,6 +22,7 @@ export default function CharacterCard(props) {
     dispatch(getCharacterInfo(props.id));
     history.push(`/character/${props.id}`)
   }
+  console.log(props)
 
   return (
     <Card className={classes.root} onClick={handleClick}>
@@ -53,17 +54,17 @@ export default function CharacterCard(props) {
                 Neutral
               </Typography>
             }
-            {props.publisher.includes('Marvel') &&
+            {props.publisher && props.publisher.includes('Marvel') &&
               <img src={Marvel} alt='marvel logo' className={classes.logo} />
             }
-            {props.publisher.includes('DC') &&
+            {props.publisher && props.publisher.includes('DC') &&
               <img src={DC} alt='dc logo' className={classes.logo} />
             }
-            {props.publisher.includes('Image') &&
+            {props.publisher && props.publisher.includes('Image') &&
               // eslint-disable-next-line jsx-a11y/img-redundant-alt
               <img src={Image} alt='image logo' className={classes.logo} />
             }
-            {props.publisher.includes('Dark Horse') &&
+            {props.publisher && props.publisher.includes('Dark Horse') &&
               <img src={Dark} alt='dark horse logo' className={classes.logo} />
             }
           </div>
