@@ -47,6 +47,15 @@ export const useStyles = makeStyles((theme) => ({
             height: 50
         },
     },
+    logoDH: {
+        height: 100,
+        [theme.breakpoints.down('sm')]: {
+            height: 80
+        },
+        [theme.breakpoints.down('xs')]: {
+            height: 30
+        },
+    },
     infoContainer1: {
         display: 'flex',
         minWidth: 'min-content',

@@ -153,7 +153,7 @@ export default function Character() {
                                     {character.biography.publisher && character.biography.publisher.includes('Dark Horse') &&
                                         <div className={classes.infoContainer}>
                                             <Text variant="body1" text='Publisher:' />
-                                            <img src={Dark} alt='dark horse logo' className={classes.logo} />
+                                            <img src={Dark} alt='dark horse logo' className={classes.logoDH} />
                                         </div>
                                     }
                                 </div>
