@@ -16,7 +16,7 @@
 ## Key Features
 
 * Developed 100% on front-end.
-* It uses an online api that includes characters from Marvel, DC Dark Horse and more comic book publishers.
+* It uses an online api that includes characters from Marvel, DC, Dark Horse and more comic book publishers.
 
 ## Installation
 
@@ -40,7 +40,7 @@ Note: If you're using Linux Bash for Windows, [see this guide](https://www.howto
 
 ## Credits
 
-This software uses the following open source packages:
+This web app uses the following open source packages:
 
 - [Node.js](https://nodejs.org/)
 - [React](https://github.com/facebook/react/)
