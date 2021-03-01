@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://super-search.vercel.app/"><img src="https://i.imgur.com/e2N9MQv.png" alt="Super-Search logo" width="200"></a>
+  <a href=""><img src="https://i.imgur.com/e2N9MQv.png" alt="Super-Search logo" width="200"></a>
 </h1>
 
 <h4 align="center"> A web app that allows you to search and view info from more than 500 comic book characters.</h4>
